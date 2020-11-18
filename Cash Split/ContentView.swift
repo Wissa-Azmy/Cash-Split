@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+	@State private var count = 0
+	
     var body: some View {
 		NavigationView {
 			Form {
 				Text("Add your price list here...")
 					.padding()
 				Section {
-					Text("Hello, world!")
+					Button("Tap Count \(count)") {
+						self.count += 1
+					}
 					Text("Hello, world!")
 					Text("Hello, world!")
 					Text("Hello, world!")
