@@ -11,11 +11,23 @@ struct ContentView: View {
 	@State private var count = 0
 	@State private var name = ""
 	
+	private let heroes = ["Wissa", "Harry", "Hermione", "Ron"]
+	@State private var selectedHero = "Wissa"
+	
     var body: some View {
 		NavigationView {
 			Form {
 				Text("Add your price list here...")
 					.padding()
+				
+				Section {
+					Picker("Select the Hero", selection: $selectedHero) {
+						ForEach(0..<heroes.count) {
+							Text(heroes[$0])
+						}
+					}
+				}
+				
 				Section {
 					Button("Tap Count \(count)") {
 						self.count += 1
