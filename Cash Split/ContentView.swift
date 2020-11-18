@@ -8,49 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-	@State private var count = 0
-	@State private var name = ""
+	@State private var checkAmount = ""
+	@State private var numberOfPeople = 2
+	@State private var tipPercentage = 2
 	
-	private let heroes = ["Wissa", "Harry", "Hermione", "Ron"]
-	@State private var selectedHero = "Wissa"
-	
-    var body: some View {
-		NavigationView {
-			Form {
-				Text("Add your price list here...")
-					.padding()
-				
-				Section {
-					Picker("Select the Hero", selection: $selectedHero) {
-						ForEach(0..<heroes.count) {
-							Text(heroes[$0])
-						}
-					}
-				}
-				
-				Section {
-					Button("Tap Count \(count)") {
-						self.count += 1
-					}
-					TextField("Enter your name", text: $name)
-					Text("Your name is \(name)")
-					Text("Hello, world!")
-					Text("Hello, world!")
-					Text("Hello, world!")
-					Text("Hello, world!")
-				}
-				
-				Group {
-					Text("Hello, world!")
-					Text("Hello, world!")
-					Text("Hello, world!")
-					Text("Hello, world!")
-					Text("Hello, world!")
-				}
+	var body: some View {
+		Form {
+			Section {
+				TextField("Enter the amount to split", text: $checkAmount)
+					.keyboardType(.decimalPad)
 			}
-			.navigationTitle("Cash Split")
+			
+			Section {
+				Text("$ \(checkAmount)")
+			}
 		}
-    }
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
