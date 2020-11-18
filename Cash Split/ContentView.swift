@@ -9,28 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-		
-		Form {
-			Text("Add your price list here...")
-				.padding()
-			Section {
-				Text("Hello, world!")
-				Text("Hello, world!")
-				Text("Hello, world!")
-				Text("Hello, world!")
-				Text("Hello, world!")
-				Text("Hello, world!")
-				Text("Hello, world!")
+		NavigationView {
+			Form {
+				Text("Add your price list here...")
+					.padding()
+				Section {
+					Text("Hello, world!")
+					Text("Hello, world!")
+					Text("Hello, world!")
+					Text("Hello, world!")
+					Text("Hello, world!")
+					Text("Hello, world!")
+					Text("Hello, world!")
+				}
+				
+				Group {
+					Text("Hello, world!")
+					Text("Hello, world!")
+					Text("Hello, world!")
+					Text("Hello, world!")
+					Text("Hello, world!")
+				}
 			}
-			
-			Group {
-				Text("Hello, world!")
-				Text("Hello, world!")
-				Text("Hello, world!")
-				Text("Hello, world!")
-				Text("Hello, world!")
-			}
-			
+			.navigationTitle("Cash Split")
 		}
     }
 }
