@@ -11,17 +11,36 @@ struct ContentView: View {
 	@State private var checkAmount = ""
 	@State private var numberOfPeople = 2
 	@State private var tipPercentage = 2
+	private var tipPercentages = ["0%", "10%", "15%", "20%", "25%"]
 	
 	var body: some View {
-		Form {
-			Section {
-				TextField("Enter the amount to split", text: $checkAmount)
-					.keyboardType(.decimalPad)
+		NavigationView {
+			Form {
+				Section {
+					TextField("Enter the amount to split", text: $checkAmount)
+						.keyboardType(.decimalPad)
+					
+					Picker("Number of People", selection: $numberOfPeople) {
+						ForEach(2 ..< 50) {
+							Text("\($0) People")
+						}
+					}
+				}
+				
+				Section(header: Text("How much Tip do you want to leave?")) {
+					Picker("Tip", selection: $tipPercentage) {
+						ForEach(0 ..< tipPercentages.count) {
+							Text("\(tipPercentages[$0])")
+						}
+					}
+					.pickerStyle(SegmentedPickerStyle())
+				}
+				
+				Section {
+					Text("Each will pay: $ \(checkAmount)")
+				}
 			}
-			
-			Section {
-				Text("$ \(checkAmount)")
-			}
+			.navigationTitle("Cash Split")
 		}
 	}
 }
